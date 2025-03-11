@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Knowledge Portal</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, p {
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1b5e20;
+        }
+
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Islamic Knowledge Portal</h1>
+        <p>Explore Hadiths, Quranic Verses, and Daily Reminders</p>
+    </header>
+
+    <div class="container">
+        <section class="hadith">
+            <h2>Hadith of the Day</h2>
+            <p id="hadith-content">Loading...</p>
+        </section>
+
+        <section class="quran-verse">
+            <h2>Quranic Verse of the Day</h2>
+            <p id="quran-content">Loading...</p>
+        </section>
+
+        <section class="reminder">
+            <h2>Daily Reminder</h2>
+            <p id="reminder-content">Loading...</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Islamic Knowledge Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Arrays with example Hadiths, Quranic verses, and Reminders
+            const hadiths = [
+                '"Actions are judged by intentions, so each man will have what he intended." - Sahih Bukhari',
+                '"The strong one is not the one who is able to overpower others, but the one who controls himself when he is angry." - Sahih Bukhari',
+                '"The best among you are those who have the best manners and character." - Sahih Bukhari'
+            ];
+
+            const quranVerses = [
+                '"Indeed, Allah is with those who fear Him and those who are doers of good." - Quran, 16:128',
+                '"And We have certainly created man and We know what his soul whispers to him, and We are closer to him than [his] jugular vein." - Quran, 50:16',
+                '"So verily, with the hardship, there is relief." - Quran, 94:6'
+            ];
+
+            const reminders = [
+                'Remember Allah often, for He remembers you.',
+                'Be kind to others, for kindness is a reflection of faith.',
+                'Seek knowledge, for it is the path to closeness to Allah.',
+                'Repent and turn to Allah for forgiveness.',
+                'Keep your prayers, for they are the key to Jannah.'
+            ];
+
+            // Randomly select Hadith, Quranic Verse, and Reminder
+            document.getElementById('hadith-content').innerText = hadiths[Math.floor(Math.random() * hadiths.length)];
+            document.getElementById('quran-content').innerText = quranVerses[Math.floor(Math.random() * quranVerses.length)];
+            document.getElementById('reminder-content').innerText = reminders[Math.floor(Math.random() * reminders.length)];
+        });
+    </script>
+
+</body>
+</html>
