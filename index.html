@@ -17,6 +17,7 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         header {
@@ -31,8 +32,11 @@
         }
 
         .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
             width: 80%;
-            margin: 20px auto;
+            margin: 40px auto;
         }
 
         section {
@@ -41,10 +45,17 @@
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: scale(1.05);
         }
 
         h2 {
             color: #1b5e20;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
 
         footer {
@@ -60,6 +71,13 @@
         p {
             font-size: 16px;
             line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -93,31 +111,36 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Arrays with example Hadiths, Quranic verses, and Reminders
-            const hadiths = [
-                '"Actions are judged by intentions, so each man will have what he intended." - Sahih Bukhari',
-                '"The strong one is not the one who is able to overpower others, but the one who controls himself when he is angry." - Sahih Bukhari',
-                '"The best among you are those who have the best manners and character." - Sahih Bukhari'
-            ];
+            // Sample JSON data for Hadiths, Quranic Verses, and Reminders
+            const data = {
+                "hadiths": [
+                    '"Actions are judged by intentions, so each man will have what he intended." - Sahih Bukhari',
+                    '"The strong one is not the one who is able to overpower others, but the one who controls himself when he is angry." - Sahih Bukhari',
+                    '"The best among you are those who have the best manners and character." - Sahih Bukhari'
+                ],
+                "quranVerses": [
+                    '"Indeed, Allah is with those who fear Him and those who are doers of good." - Quran, 16:128',
+                    '"And We have certainly created man and We know what his soul whispers to him, and We are closer to him than [his] jugular vein." - Quran, 50:16',
+                    '"So verily, with the hardship, there is relief." - Quran, 94:6'
+                ],
+                "reminders": [
+                    'Remember Allah often, for He remembers you.',
+                    'Be kind to others, for kindness is a reflection of faith.',
+                    'Seek knowledge, for it is the path to closeness to Allah.',
+                    'Repent and turn to Allah for forgiveness.',
+                    'Keep your prayers, for they are the key to Jannah.'
+                ]
+            };
 
-            const quranVerses = [
-                '"Indeed, Allah is with those who fear Him and those who are doers of good." - Quran, 16:128',
-                '"And We have certainly created man and We know what his soul whispers to him, and We are closer to him than [his] jugular vein." - Quran, 50:16',
-                '"So verily, with the hardship, there is relief." - Quran, 94:6'
-            ];
+            // Function to get random item from an array
+            function getRandomItem(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
 
-            const reminders = [
-                'Remember Allah often, for He remembers you.',
-                'Be kind to others, for kindness is a reflection of faith.',
-                'Seek knowledge, for it is the path to closeness to Allah.',
-                'Repent and turn to Allah for forgiveness.',
-                'Keep your prayers, for they are the key to Jannah.'
-            ];
-
-            // Randomly select Hadith, Quranic Verse, and Reminder
-            document.getElementById('hadith-content').innerText = hadiths[Math.floor(Math.random() * hadiths.length)];
-            document.getElementById('quran-content').innerText = quranVerses[Math.floor(Math.random() * quranVerses.length)];
-            document.getElementById('reminder-content').innerText = reminders[Math.floor(Math.random() * reminders.length)];
+            // Populate the content dynamically
+            document.getElementById('hadith-content').innerText = getRandomItem(data.hadiths);
+            document.getElementById('quran-content').innerText = getRandomItem(data.quranVerses);
+            document.getElementById('reminder-content').innerText = getRandomItem(data.reminders);
         });
     </script>
 
